@@ -1,0 +1,101 @@
+/* 🌐 Conteneur principal */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  padding: 30px;
+}
+
+/* 🖼️ Logo */
+.login-logo img {
+  width: 140px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* 📦 Boîte de connexion */
+.login-box {
+  background-color: #ffffff;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 400px;
+  transition: box-shadow 0.3s ease;
+}
+
+.login-box:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔑 Titre */
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #2c3e50;
+  position: relative;
+  text-decoration: none;
+}
+
+.login-box h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #6c5ce7;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* 🧾 Champs */
+.field-group {
+  margin-bottom: 22px;
+}
+
+.field-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+.field-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #dcdde1;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #f8f9fa;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.field-group input:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 8px rgba(108, 92, 231, 0.3);
+  outline: none;
+}
+
+/* 🟪 Bouton de connexion */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background-color: #6c5ce7;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #5a4bcf;
+  transform: translateY(-2px);
+}
