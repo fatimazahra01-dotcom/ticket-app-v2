@@ -10,10 +10,10 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Casa.ma2005", 
-  database: "support_tickets_db",
+  host: "b4jtqhi7siqltnbkvjes-mysql.services.clever-cloud.com",
+  user: "uix0vd7ghgemuobp",
+  password: "cruNIv837iN7ch40MvzS", 
+  database: "b4jtqhi7siqltnbkvjes",
   port: 3306,
 }); 
 
