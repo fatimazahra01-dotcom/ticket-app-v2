@@ -150,7 +150,7 @@ const fetchCategories = async () => {
           <button
             onClick={() => {
               window.open(
-               "https://app.powerbi.com/groups/me/reports/fa144208-04de-4019-83de-d74715201b08/7d9ec014d394556d052b?experience=power-bi"
+               "https://app.powerbi.com/groups/me/reports/75f6ac5b-96d3-4c54-93bc-f8515bad1347/b4343041573a667b4004?experience=power-bi"
               );
             }}
             className="BI"
