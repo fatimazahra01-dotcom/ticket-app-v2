@@ -15,7 +15,7 @@ export default function LoginPage() {
     e.preventDefault();
 
     if (!allowedUsers.includes(username)) {
-      alert("❌ Utilisateur non autorisé");
+      alert(" Utilisateur non autorisé");
       return;
     }
 
