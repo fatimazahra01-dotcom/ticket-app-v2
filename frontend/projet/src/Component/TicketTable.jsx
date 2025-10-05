@@ -145,8 +145,8 @@ const fetchCategories = async () => {
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" }}>
         <h2>📋 Liste des Tickets</h2>
         <div>
-          <button onClick={exportToExcel}>📥 Exporter Excel</button>
-          <button onClick={handleLogout}>🔒 Déconnexion</button>
+          <button onClick={exportToExcel}> Exporter Excel</button>
+          <button onClick={handleLogout}> Déconnexion</button>
           <button
             onClick={() => {
               window.open(
@@ -155,7 +155,7 @@ const fetchCategories = async () => {
             }}
             className="BI"
           >
-            📊 View in Power BI
+             View in Power BI
           </button>
         </div>
       </div>
@@ -259,9 +259,9 @@ const fetchCategories = async () => {
                 </td>
                 <td>{t.ResolvedBy || "-"}</td>
                 <td>
-                  <button onClick={() => handleSave(t.TicketID)}>💾 Sauvegarder</button>
+                  <button onClick={() => handleSave(t.TicketID)}> Sauvegarder</button>
                   {t.Status === "Ouvert" && (
-                    <button onClick={() => handleResolve(t.TicketID)}>✅ Résoudre</button>
+                    <button onClick={() => handleResolve(t.TicketID)}> Résoudre</button>
                   )}
                 </td>
                  </tr>
