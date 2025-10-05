@@ -60,7 +60,7 @@ export default function AddTicket() {
         team: form.EQUIPE_ASSIGNEE,
         Priority: form.PRIORITE,
       });
-      alert("✅ Ticket ajouté !");
+      alert("Ticket ajouté !");
       setForm({
         ID_TICKET: "",
         NOM_UTILISATEUR: "",
@@ -79,7 +79,7 @@ export default function AddTicket() {
 
  return (
   <div className="ticket-app">
-    <h2>🎫 Créer un nouveau ticket</h2>
+    <h2> Créer un nouveau ticket</h2>
     <form onSubmit={handleSubmit} className="ticket-form">
       <select name="TYPE_TICKET" value={form.TYPE_TICKET} onChange={handleChange} required>
         <option value="">-- Type de ticket --</option>
@@ -122,7 +122,7 @@ export default function AddTicket() {
 
       <input name="EQUIPE_ASSIGNEE" value="IT OSS" readOnly />
 
-      <button type="submit" disabled={!form.ID_TICKET}>➕ Ajouter Ticket</button>
+      <button type="submit" disabled={!form.ID_TICKET}>Ajouter Ticket</button>
     </form>
   </div>
 );
