@@ -1,4 +1,4 @@
-/* 🌐 Conteneur principal */
+
 .login-container {
   display: flex;
   flex-direction: column;
@@ -10,14 +10,13 @@
   padding: 30px;
 }
 
-/* 🖼️ Logo */
+
 .login-logo img {
   width: 140px;
   margin-bottom: 20px;
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.1));
 }
 
-/* 📦 Boîte de connexion */
 .login-box {
   background-color: #ffffff;
   padding: 40px 50px;
@@ -32,7 +31,7 @@
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
 }
 
-/* 🔑 Titre */
+
 .login-box h2 {
   text-align: center;
   margin-bottom: 25px;
@@ -53,7 +52,7 @@
   border-radius: 2px;
 }
 
-/* 🧾 Champs */
+
 .field-group {
   margin-bottom: 22px;
 }
@@ -81,7 +80,7 @@
   outline: none;
 }
 
-/* 🟪 Bouton de connexion */
+
 button[type="submit"] {
   width: 100%;
   padding: 14px;
