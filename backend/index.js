@@ -9,23 +9,21 @@ const port = 5000;
 app.use(cors());
 app.use(express.json());
 
-// --- Connexion MySQL
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Casa.ma2005", // ⚠ Ne jamais exposer en production
+  password: "Casa.ma2005", 
   database: "support_tickets_db",
   port: 3306,
 }); 
 
 
-// Supprimer les tickets fermés tous les jours à minuit
 cron.schedule("0 0 * * *", () => {
   db.query("DELETE FROM tickets WHERE Status = 'Fermé'", (err, result) => {
     if (err) {
-      console.error("❌ Erreur lors de la suppression automatique :", err);
+      console.error(" Erreur lors de la suppression automatique :", err);
     } else {
-      console.log(`✅ ${result.affectedRows} tickets fermés supprimés à minuit.`);
+      console.log(` ${result.affectedRows} tickets fermés supprimés à minuit.`);
     }
   });
 });
@@ -33,13 +31,12 @@ cron.schedule("0 0 * * *", () => {
 
 db.connect(err => {
   if (err) {
-    console.error("❌ Erreur de connexion DB:", err);
+    console.error(" Erreur de connexion DB:", err);
     process.exit(1);
   }
-  console.log("✅ Connecté à MySQL");
+  console.log(" Connecté à MySQL");
 });
 
-// --- Helper : calcul temps de résolution
 function formatResolutionTime(createdAt, resolvedAt) {
   if (!resolvedAt) return "-";
   const diffMs = new Date(resolvedAt) - new Date(createdAt);
@@ -49,7 +46,6 @@ function formatResolutionTime(createdAt, resolvedAt) {
   return `${hours}h ${minutes}m ${seconds}s`;
 }
 
-// --- Générer prochain ID
 app.get("/tickets/next-id/:type", (req, res) => {
   const type = (req.params.type || "").toUpperCase();
   if (!["DMD", "INC"].includes(type)) return res.status(400).json({ error: "Type invalide" });
@@ -69,7 +65,6 @@ app.get("/tickets/next-id/:type", (req, res) => {
   });
 });
 
-// --- Ajouter ticket
 app.post("/tickets", (req, res) => {
   const { TicketID, nameUser, Description, Priority, team, CategoryName } = req.body;
   const sql = `INSERT INTO tickets (TicketID, nameUser, Description, Priority, team, CategoryName, Status, CreatedAt)
@@ -80,7 +75,6 @@ app.post("/tickets", (req, res) => {
   });
 });
 
-// --- Récupérer tous les tickets
 app.get("/tickets", (req, res) => {
   db.query("SELECT * FROM tickets ORDER BY CreatedAt ASC", (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
@@ -92,7 +86,6 @@ app.get("/tickets", (req, res) => {
   });
 });
 
-// --- Modifier ticket
 app.put("/tickets/:id", (req, res) => {
   const ticketId = req.params.id;
   const updates = req.body || {};
@@ -123,7 +116,6 @@ app.put("/tickets/:id", (req, res) => {
   });
 });
 
-// --- Résoudre ticket
 app.put("/tickets/:id/resolve", (req, res) => {
   const ticketId = req.params.id;
   const { note, resolvedBy, Description, Priority, CategoryName } = req.body;
@@ -152,7 +144,6 @@ app.put("/tickets/:id/resolve", (req, res) => {
   });
 });
 
-// --- Supprimer tickets fermés
 app.delete("/tickets/delete-closed", (req, res) => {
   db.query("DELETE FROM tickets WHERE Status='Fermé'", (err, result) => {
     if (err) return res.status(500).json({ success: false, error: err.message });
@@ -160,7 +151,6 @@ app.delete("/tickets/delete-closed", (req, res) => {
   });
 });
 
-// --- Auth simple
 const IT_USERS = {
   boutaina: "123",
   tarik: "123",
@@ -207,5 +197,5 @@ app.post("/login", (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`🚀 Serveur backend lancé sur http://localhost:${port}`);
+  console.log(` Serveur backend lancé sur http://localhost:${port}`);
 });
